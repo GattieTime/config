@@ -5,12 +5,14 @@ spring:
   application.name: gateway 
   cloud:
     gateway:
-      default-filters:      - PrefixPath=/
+      default-filters:
+      - PrefixPath=/
       routes:
       #=========================
       - id: flashcard
         uri: lb://flashcard
-        predicates:        - Path=/flashcard/**
+        predicates:
+        - Path=/flashcard/**
         filters:
         - StripPrefix=1
         - name: CircuitBreaker
@@ -20,6 +22,8 @@ spring:
       #=========================
       - id: quiz
         uri: lb://quiz
-        predicates:        - Path=/quiz/**
+        predicates:
+        - Path=/quiz/**
         filters:
-        - StripPrefix=1
+        - StripPrefix=1
+
